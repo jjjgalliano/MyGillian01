@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(viewId == R.id.confirmbutton)
         {
             //confirm
-            Log.d("buttonTest","fonfirm button was clicked");
+            Log.d("buttonTest","confirm button was clicked");
         }
     }
 }
