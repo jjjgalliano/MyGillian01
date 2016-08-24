@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by user on 2016/8/24.
@@ -62,7 +63,7 @@ public class OwnedPokemonDataManager {
             ownedPokemonInfo.skills[i-skillStartIndex] = dataFileds[i];
 
         }
-        Log.d("testDM", ownedPokemonInfo.name+","+ ownedPokemonInfo.level+","+ownedPokemonInfo.type_1+","+ownedPokemonInfo.type_2+ ownedPokemonInfo.currentHP+","+ownedPokemonInfo.maxHP+","+ ownedPokemonInfo.skills.length);
+        Log.d("testDM", ownedPokemonInfo.name+","+ ownedPokemonInfo.level+","+ownedPokemonInfo.type_1+","+ownedPokemonInfo.type_2+ ownedPokemonInfo.currentHP+","+ownedPokemonInfo.maxHP+","+ Arrays.toString(ownedPokemonInfo.skills));
         return ownedPokemonInfo;
     }
 
