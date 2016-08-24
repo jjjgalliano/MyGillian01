@@ -8,6 +8,7 @@ import android.widget.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    static final String[] pokemonNames ={"傑尼龜","妙蛙種子","可達鴨"};
     TextView infoText;
     EditText nameEditText;
     RadioGroup optionGroup;
@@ -30,7 +31,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(viewId == R.id.confirmbutton)
         {
             //confirm
+
             Log.d("buttonTest","confirm button was clicked");
+            String name = nameEditText.getText().toString();
+
+            int  selectedradioButtonID = optionGroup.getCheckedRadioButtonId();
+           View selectedRadioButtonView = optionGroup.findViewById(selectedradioButtonID);
+            int selectedIndex = optionGroup.indexOfChild(selectedRadioButtonView);
+
+            RadioButton selectedRadioButton =(RadioButton)selectedRadioButtonView;
+            String radionBtnText = selectedRadioButton.getText().toString();
+
+            String welcomemessages = String.format("你好,訓練者 %s ,你的第一個夥伴是%s",name,radionBtnText );
+            infoText.setText(welcomemessages);
+
         }
+
+
     }
 }
