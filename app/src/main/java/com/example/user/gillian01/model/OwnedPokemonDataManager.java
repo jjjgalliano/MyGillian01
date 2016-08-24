@@ -1,9 +1,11 @@
 package com.example.user.gillian01.model;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -43,12 +45,29 @@ public class OwnedPokemonDataManager {
         }
     }
 
-
+    static final int skillStartIndex =8;
     private OwnedPokemonInfo construcrPokemonInfo(String[] dataFileds)
     {
-        
-        return null;
+        OwnedPokemonInfo ownedPokemonInfo = new OwnedPokemonInfo();
+        ownedPokemonInfo.pokemonId =Integer.valueOf(dataFileds[0]);
+        ownedPokemonInfo.name = dataFileds[2];
+        ownedPokemonInfo.level = Integer.valueOf(dataFileds[3]);
+        ownedPokemonInfo.currentHP = Integer.valueOf(dataFileds[4]);
+        ownedPokemonInfo.maxHP = Integer.valueOf(dataFileds[5]);
+        ownedPokemonInfo.type_1= Integer.valueOf(dataFileds[6]);
+        ownedPokemonInfo.type_2 = Integer.valueOf(dataFileds[7]);
+
+        for(int i =skillStartIndex; i<dataFileds.length;i++ )
+        {
+            ownedPokemonInfo.skills[i-skillStartIndex] = dataFileds[i];
+
+        }
+        Log.d("testDM", ownedPokemonInfo.name+","+ ownedPokemonInfo.level+","+ownedPokemonInfo.type_1+","+ownedPokemonInfo.type_2+ ownedPokemonInfo.currentHP+","+ownedPokemonInfo.maxHP+","+ ownedPokemonInfo.skills.length);
+        return ownedPokemonInfo;
     }
 
+    public ArrayList<OwnedPokemonInfo> getOwnedPokemonInfos() {
+        return ownedPokemonInfos;
+    }
 
 }
