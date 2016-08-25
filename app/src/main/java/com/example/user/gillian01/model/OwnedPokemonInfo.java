@@ -16,6 +16,7 @@ public class OwnedPokemonInfo {
     public int type_1;
     public int type_2;
     public String[] skills = new String[maxNumSkills];
+    public boolean isSelected = false;
 
     public OwnedPokemonInfo()
     {}
