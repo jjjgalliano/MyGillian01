@@ -13,4 +13,76 @@
         android:scaleType="fitCenter"
         android:layout_margin="30dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:id="@+id/nameText"
+        android:layout_alignTop="@+id/appearanceImg"
+        android:layout_toRightOf="@+id/appearanceImg"
+        android:layout_toEndOf="@+id/appearanceImg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lv"
+        android:id="@+id/textView"
+        android:layout_below="@+id/nameText"
+        android:layout_alignLeft="@+id/nameText"
+        android:layout_alignStart="@+id/nameText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/levelText"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginLeft="15dp" />
+
+    <ProgressBar
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/HPBar"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_alignTop="@+id/nameText"
+        android:layout_toRightOf="@+id/levelText"
+        android:layout_toEndOf="@+id/levelText"
+        android:minWidth="100dp"
+        android:progressBackgroundTint="@color/accent_material_dark"
+        android:longClickable="true"
+        android:progress="50" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="170"
+        android:id="@+id/currentHP"
+        android:layout_alignTop="@+id/levelText"
+        android:layout_alignLeft="@+id/HPBar"
+        android:layout_alignStart="@+id/HPBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/currentHP"
+        android:layout_toRightOf="@+id/currentHP"
+        android:layout_toEndOf="@+id/currentHP"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="340"
+        android:id="@+id/maxHP"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 </RelativeLayout>
