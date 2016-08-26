@@ -15,6 +15,7 @@ import com.example.user.gillian01.R; // important
 import com.example.user.gillian01.model.OwnedPokemonInfo;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,8 @@ import java.util.List;
  */
 public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo>  implements OnPokemonSelectedChangeListner {
 
-
-
-    ArrayList<OwnedPokemonInfo> selectedPokemons = new ArrayList<>();
+     public ArrayList<OwnedPokemonInfo> selectedPokemons = new ArrayList<>();
+     public OnPokemonSelectedChangeListner pokemonSelectedChangeListner;
 
     LayoutInflater mInflater;
     int mRowLayoutId;
@@ -60,7 +60,8 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo>  impl
     }
 
     @Override
-    public void onSelectedChanged(OwnedPokemonInfo ownedPokemonInfo) {
+    public void onSelectedChange(OwnedPokemonInfo ownedPokemonInfo) {
+
         if(ownedPokemonInfo.isSelected)
         {
             selectedPokemons.add(ownedPokemonInfo);
@@ -68,9 +69,15 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo>  impl
         {
             selectedPokemons.remove(ownedPokemonInfo);  // if null ?? remove ??
         }
+        if(pokemonSelectedChangeListner != null)
+        {
+
+           pokemonSelectedChangeListner.onSelectedChange(ownedPokemonInfo);
+        }
     }
 
     public static class ViewHolder implements View.OnClickListener{
+        // what if not static
       //  public interface OnPokemonSelectedChangeListner{
       //      void onSelectedChanged(OwnedPokemonInfo ownedPokemonInfo);// interface default  public
       //  }  // not static class can't put interface in it
@@ -127,6 +134,8 @@ public class PokemonListViewAdapter extends ArrayAdapter<OwnedPokemonInfo>  impl
         {
             mData.isSelected = !mData.isSelected;
             mRowView.setActivated(mData.isSelected);
+
+            mAdapter.onSelectedChange(mData);
 
         }
 

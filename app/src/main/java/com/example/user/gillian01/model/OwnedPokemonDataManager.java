@@ -16,15 +16,33 @@ public class OwnedPokemonDataManager {
 
     Context mcontext  ;// system app defalut context ; access system service
     ArrayList<OwnedPokemonInfo> ownedPokemonInfos = null;
+    static final int numintPokemons = 3;
+    OwnedPokemonInfo[]  intiPokemonInfos = new OwnedPokemonInfo[numintPokemons];
+
 
     public OwnedPokemonDataManager(Context context)
     {
         mcontext = context;
-
-
     }
 
-    public void loadListViewData(){
+        public void loadPokemonType()
+        {
+          //  pokemonTypes = new ArrayList<>();
+            try{
+
+                BufferedReader   reader = new BufferedReader(new InputStreamReader(mcontext.getAssets().open("pokemon_types..csv")));
+                OwnedPokemonInfo.typeNames = reader.readLine().split(",");
+                reader.close();
+
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+        }
+
+
+    public void loadInitPokemonData(){
         ownedPokemonInfos = new ArrayList<>();
 
         BufferedReader reader;
@@ -32,6 +50,38 @@ public class OwnedPokemonDataManager {
         String[] datafields = null;
 
         try{
+            reader = new BufferedReader(new InputStreamReader(mcontext.getAssets().open("pokemon_data.csv")));
+
+            while((line = reader.readLine()) != null)
+            {
+                datafields = line.split(",");
+                ownedPokemonInfos.add(construcrPokemonInfo(datafields));
+            }
+            reader.close();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void loadListViewData(){
+        ownedPokemonInfos = new ArrayList<>();
+
+
+        BufferedReader reader;
+        String line = null;
+        String[] datafields = null;
+
+        try{
+            reader = new BufferedReader(new InputStreamReader(mcontext.getAssets().open("init_pokemon_data.csv")));
+            for(int i= 0; i<3; i++)
+            {
+               datafields = reader.readLine().split(",");
+                intiPokemonInfos[i] =construcrPokemonInfo(datafields);
+            }
+                reader.close();
                 reader = new BufferedReader(new InputStreamReader(mcontext.getAssets().open("pokemon_data.csv")));
 
             while((line = reader.readLine()) != null)
@@ -69,6 +119,10 @@ public class OwnedPokemonDataManager {
 
     public ArrayList<OwnedPokemonInfo> getOwnedPokemonInfos() {
         return ownedPokemonInfos;
+    }
+
+    public OwnedPokemonInfo[] getIntiPokemonInfos(){
+        return intiPokemonInfos ; // ??
     }
 
 }

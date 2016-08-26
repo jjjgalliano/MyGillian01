@@ -7,5 +7,7 @@ import com.example.user.gillian01.model.OwnedPokemonInfo;
  */
 public interface OnPokemonSelectedChangeListner {
 
-    void onSelectedChanged(OwnedPokemonInfo ownedPokemonInfo);// interface default  public
+  //  void onSelectedChanged(OwnedPokemonInfo ownedPokemonInfo);// interface default  public
+
+    void onSelectedChange(OwnedPokemonInfo ownedPokemonInfo);
 }
