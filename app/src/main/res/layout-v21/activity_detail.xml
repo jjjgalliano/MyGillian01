@@ -111,6 +111,43 @@
             android:id="@+id/HPBar"
             android:layout_alignTop="@+id/textView6"
             android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8" />
+            android:layout_alignStart="@+id/textView8"
+            android:layout_alignBottom="@+id/textView6"
+            android:layout_alignRight="@+id/textView9"
+            android:layout_alignEnd="@+id/textView9"
+            android:progress="50" />
+
+        <TextView
+            android:layout_width="@dimen/detail_view_field_width"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:id="@+id/currentHP"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/HPBar"
+            android:layout_alignLeft="@+id/HPBar"
+            android:layout_alignStart="@+id/HPBar" />
+
+        <TextView
+            android:layout_width="@dimen/detail_view_field_width"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:id="@+id/textView11"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/HPBar"
+            android:layout_toRightOf="@+id/currentHP"
+            android:layout_toEndOf="@+id/currentHP" />
+
+        <TextView
+            android:layout_width="@dimen/detail_view_field_width"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:id="@+id/textView12"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/HPBar"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11" />
     </RelativeLayout>
 </LinearLayout>
